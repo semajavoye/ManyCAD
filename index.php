@@ -227,6 +227,8 @@ if (!isset($_SESSION['username'])) {
 
             <div class="user-settings-main tab-content" id="user-settings">
                 <h1>User Settings</h1>
+
+                
                 <?php if (isset($_SESSION['username'])) {
                     echo '<span class="username">' . $_SESSION['username'] . '</span>';
                 } ?>
