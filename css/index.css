@@ -72,8 +72,11 @@ body {
 
 .desktop-icons li {
     margin-right: 10px;
-    /* Add some space between icons */
     margin-bottom: 10px;
+}
+
+.apps ul {
+    list-style-type: none;
 }
 
 .user-header {

@@ -46,9 +46,11 @@ if (!isset($_SESSION['username'])) {
                         <li id="tab1" data-tab="new-call"><img src="img/desktop-icons/new-call.png" alt=""></li>
                         <li id="tab2" data-tab="map-container"><img src="img/desktop-icons/maps.png" alt=""></li>
                         <li id="tab3" data-tab="searchcars"><img src="img/desktop-icons/car-search.png" alt=""></li>
-                        <li id="tab4" data-tab="searchpersons"><img src="img/desktop-icons/person-search.png" alt=""></li>
+                        <li id="tab4" data-tab="searchpersons"><img src="img/desktop-icons/person-search.png" alt="">
+                        </li>
                         <li id="tab5" data-tab="noteContainer"><img src="img/desktop-icons/notes.png" alt=""></li>
-                        <li id="tab6" data-tab="active-calls"><img src="img/desktop-icons/activedispatches.png" alt=""></li>
+                        <li id="tab6" data-tab="active-calls"><img src="img/desktop-icons/activedispatches.png" alt="">
+                        </li>
                     </ul>
                 </div>
 
@@ -60,7 +62,8 @@ if (!isset($_SESSION['username'])) {
                                 Notfallaufnahme
                                 <div class="form-group">
                                     <label for="call-number" class="label">Anrufsnummer:</label>
-                                    <input type="number" id="call-number" name="call-number" class="input" max=6 placeholder="Telefonnummer" required>
+                                    <input type="number" id="call-number" name="call-number" class="input" max=6
+                                        placeholder="Telefonnummer" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="who" class="label">Wer?</label>
@@ -74,13 +77,16 @@ if (!isset($_SESSION['username'])) {
                                 </div>
                                 <div class="form-group">
                                     <label for="location" class="label">Postleitzahl:</label>
-                                    <input type="number" id="location" name="location" class="input" required maxlength="5" placeholder="Postleitzahl">
+                                    <input type="number" id="location" name="location" class="input" required
+                                        maxlength="5" placeholder="Postleitzahl">
                                 </div>
                                 <div class="form-group">
                                     <label for="description" class="label">Beschreibung:</label>
-                                    <textarea id="description" name="description" class="input" rows="4" required placeholder="Was ist passiert?"></textarea>
+                                    <textarea id="description" name="description" class="input" rows="4" required
+                                        placeholder="Was ist passiert?"></textarea>
                                 </div>
-                                <button type="button" class="submit-button" onclick="createCall()"><span>Create Call</span></button>
+                                <button type="button" class="submit-button" onclick="createCall()"><span>Create
+                                        Call</span></button>
                             </form>
                         </div>
                     </div>
@@ -113,7 +119,7 @@ if (!isset($_SESSION['username'])) {
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="map-main tab-content" id="map-container">
                     <div id="map"></div>
                     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
@@ -167,35 +173,35 @@ if (!isset($_SESSION['username'])) {
                                 <div class="person-name">
                                     Name
                                     <div class="person-nameholder">
-                                        <span class="person-namesp">${data.name}</span>
+                                        <span class="person-namesp">Semaja Voye</span>
                                     </div>
                                 </div>
                                 <div class="person-dob">
                                     Geburtsdatum
                                     <div class="person-dobholder">
-                                        <span class="person-dobsp">${data.dob}</span>
+                                        <span class="person-dobsp">31.10.2008</span>
                                     </div>
                                 </div>
                                 <div class="person-height">
                                     Größe
                                     <div class="person-heightholder">
-                                        <span class="person-heightsp">${data.height}</span>
+                                        <span class="person-heightsp">180</span>
                                     </div>
                                 </div>
                                 <div class="person-phonenumber">
                                     Telefonnummer
                                     <div class="person-phonenumberholder">
-                                        <span class="person-phonenumbersp">${data.phoneNumber}</span>
+                                        <span class="person-phonenumbersp">123123</span>
                                     </div>
                                 </div>
                                 <div class="person-job">
                                     Arbeit
                                     <div class="person-jobholder">
-                                        <span class="person-jobsp">${data.job}</span>
+                                        <span class="person-jobsp">IT</span>
                                     </div>
                                 </div>
                             </div>
-                        </div>                        
+                        </div>
                     </div>
                 </div>
             </div>
@@ -204,10 +210,10 @@ if (!isset($_SESSION['username'])) {
             <div class="noteContainer tab-content" id="noteContainer">
                 <div class="noteField">
                     Meine Notizen
-                    <select>  
+                    <select>
                         <option value="Notiz 1">Notiz 1</option>
-                        <option value="Notiz 2">Notiz 2</option>  
-                    </select> 
+                        <option value="Notiz 2">Notiz 2</option>
+                    </select>
                     <div class="alertField"></div>
                     <input type="text" id="titleNote" placeholder="Titel">
                     <textarea name="" id="" cols="30" rows="10"></textarea>
@@ -219,21 +225,31 @@ if (!isset($_SESSION['username'])) {
                 </div>
             </div>
 
-
+            <div class="user-settings-main tab-content" id="user-settings">
+                <h1>User Settings</h1>
+                <?php if (isset($_SESSION['username'])) {
+                    echo '<span class="username">' . $_SESSION['username'] . '</span>';
+                } ?>
+            </div>
 
             <div class="taskbar">
                 <div class="power-btn" id="powerbtn">
                     <form method="post" action="logout.php">
-                        <button type="submit" style="border: none; background-color: transparent;"><img src="img/power-button.png" alt="Shutdown Button"></button>
+                        <button type="submit" style="border: none; background-color: transparent;"><img
+                                src="img/power-button.png" alt="Shutdown Button"></button>
                     </form>
                 </div>
                 <div class="apps" id="user">
-                    <i class="fa-solid fa-user"></i>
-                    <?php if (isset($_SESSION['username'])) { echo '<span class="username">' . $_SESSION['username'] . '</span>'; } ?>
+                    <ul>
+                        <li data-tab="user-settings">
+                            <i class="fa-solid fa-user"></i>
+                            <?php if (isset($_SESSION['username'])) {
+                                echo '<span class="username">' . $_SESSION['username'] . '</span>';
+                            } ?>
+                        </li>
+                    </ul>
                 </div>
 
-
-                
                 <div class="datetime">
                     <div class="date" id="date"></div>
                     <div class="time" id="time"></div>
@@ -242,7 +258,7 @@ if (!isset($_SESSION['username'])) {
             </div>
         </div>
     </div>
-    
+
     <script src="js/nui_int.js"></script>
     <script src="js/windowonl.js"></script>
     <script src="js/index.js"></script>

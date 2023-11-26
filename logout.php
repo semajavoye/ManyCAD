@@ -14,12 +14,12 @@
     <div class="logout-container">
         <p class="message">
             Logout erfolgreich<br>
-            Du wirst in 3 Sekunden zur Login-Seite geführt. Wenn das nicht funktioniert, klicke
+            Du wirst in 1 Sekunden zur Login-Seite geführt. Wenn das nicht funktioniert, klicke
             <a href='login.php'>hier</a>.
         </p>
     </div>
     <script>
-        setTimeout(function () { window.location.href = 'login.php'; }, 3000);
+        setTimeout(function () { window.location.href = 'login.php'; }, 1000);
     </script>
 </body>
 
