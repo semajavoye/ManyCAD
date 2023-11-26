@@ -1,0 +1,202 @@
+window.onload = function () {
+
+
+    var animationDuration = 2000;
+    setTimeout(function () {
+        // After the timeout, toggle the 'desktop' class to make it visible
+        document.querySelector('.loader-container').style.display = 'none'; // Hide the loader container
+        document.querySelector('.main-system').style.display = 'block'; // Show the desktop
+    }, animationDuration);
+};
+
+document.addEventListener('DOMContentLoaded', (event) => {
+    // Function to get formatted German weekday
+    function getGermanWeekday(date) {
+        const weekdays = ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'];
+        return weekdays[date.getDay()];
+    }
+
+    // Function to update date and time
+    function updateDateTime() {
+        const dateElement = document.getElementById('date');
+        const timeElement = document.getElementById('time');
+        const now = new Date();
+
+        // Format date with German weekday
+        const formattedDate = getGermanWeekday(now) + ', ' + now.getDate() + '. ' + getGermanMonth(now.getMonth()) + ' ' + now.getFullYear();
+        dateElement.textContent = formattedDate;
+
+        // Format time
+        const formattedTime = formatTwoDigitNumber(now.getHours()) + ':' + formatTwoDigitNumber(now.getMinutes()) + ':' + formatTwoDigitNumber(now.getSeconds());
+        timeElement.textContent = formattedTime;
+    }
+
+    // Function to get formatted German month
+    function getGermanMonth(monthIndex) {
+        const months = ['Jan', 'Febr', 'Mär', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sept', 'Okt', 'Nov', 'Dez'];
+        return months[monthIndex];
+    }
+
+    function formatTwoDigitNumber(number) {
+        return number < 10 ? '0' + number : number;
+    }
+
+    setInterval(updateDateTime, 1000);
+
+});
+
+
+function saveNote() {
+    var noteContent = document.getElementById("AreanoteField").value;
+    var userId = "<?php echo $_SESSION['user_id']; ?>;" // Get the user_id from the session
+
+    // Validate that the note content is not empty before saving
+    if (noteContent.trim() !== "") {
+        // Use AJAX to send a request to the server to save the note
+        $.ajax({
+            type: "POST",
+            url: "../savenote.php", // Create this PHP file to handle the saving process
+            data: { content: noteContent },
+            success: function (response) {
+                // Handle success, e.g., show a success message
+                console.log("Note saved successfully");
+            },
+            error: function (error) {
+                // Handle errors, e.g., show an error message
+                console.error("Error saving note:", error);
+            }
+        });
+    } else {
+        // Show an alert or message indicating that the note content is empty
+        alert("Note content cannot be empty");
+    }
+}
+
+
+
+function openNote() {
+
+}
+
+function newNote() {
+    inputField.value = '';
+}
+
+
+
+// Tab Elements menu in dekstop for handling the menus
+document.addEventListener('DOMContentLoaded', (event) => {
+    // Get all tab elements
+    const tabs = document.querySelectorAll('li[data-tab]');
+    const desktopico = document.querySelector('.desktop-icons');
+
+    // Get all tab content elements
+    const tabContents = document.querySelectorAll('.tab-content');
+
+    const main_system = document.querySelector('.main-system');
+
+    // Add click event listener to each tab
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            // Hide all tab content elements
+            tabContents.forEach(content => {
+                content.classList.remove('active');
+                main_system.classList.remove('inmenu');
+            });
+
+            // Get the data-tab attribute value of the clicked tab
+            const tabId = tab.getAttribute('data-tab');
+
+            // Show the corresponding tab content
+            const activeContent = document.getElementById(tabId);
+            const userheader = document.querySelector('.user-header');
+            if (activeContent) {
+                activeContent.classList.add('active');
+                main_system.classList.add('inmenu');
+                desktopico.style.display = 'none';
+                userheader.style.display = 'block';
+            }
+        });
+    });
+});
+
+
+function backToHome() {
+    const tabContents = document.querySelectorAll('.tab-content');
+    const desktopico = document.querySelector('.desktop-icons');
+    const userheader = document.querySelector('.user-header');
+    const main_system = document.querySelector('.main-system');
+
+    tabContents.forEach(content => {
+        content.classList.remove('active');
+        main_system.classList.remove('inmenu');
+    });
+
+    desktopico.style.display = 'block';
+    userheader.style.display = 'none';
+}
+
+
+function anzeigenEinheiten() {
+    // Code zum Anzeigen aller Einheiten
+}
+
+function hinzufuegenEinheit() {
+    // Code zum Hinzufügen einer Einheit
+}
+
+function entfernenEinheit() {
+    // Code zum Entfernen einer Einheit
+}
+
+function anzeigenEinsaetze() {
+    // Code zum Anzeigen aller Einsätze
+}
+
+function erstellenEinsatz() {
+    // Code zum Erstellen eines neuen Einsatzes
+}
+
+function anzeigenEinsatzDetails() {
+    // Code zum Anzeigen von Einsatzdetails
+}
+
+function aktualisierenEinsatz() {
+    // Code zum Aktualisieren eines Einsatzes
+}
+
+function zuweisenEinheit() {
+    // Code zum Zuweisen einer Einheit zu einem Einsatz
+}
+
+function protokollierung() {
+    // Code für die Protokollierung
+}
+
+function benutzerverwaltung() {
+    // Code für die Benutzerverwaltung
+}
+
+function benachrichtigungen() {
+    // Code für Benachrichtigungen
+}
+
+function kartenIntegration() {
+    // Code für die Kartenintegration
+}
+
+function chatFunktion() {
+    // Code für die Chatfunktion
+}
+
+function historischeDaten() {
+    // Code zum Anzeigen historischer Daten
+}
+
+function routenPlanung() {
+    // Code für die Routenplanung
+}
+
+function dateianhaenge() {
+    // Code für Dateianhänge
+}

@@ -1,0 +1,13 @@
+:root {
+    --red: #f00;
+    --background-color: #222;
+    --background-color-bright: #2a2a2a;
+    --text-color: #fff;
+    --polizei-logo: #0026ff;
+    --secondary-color: #4CAF50;
+    --accent-color: #3498db;
+    --border-color: #ccc;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --hover-color: #45a049;
+    --placeholder-color: #bbb;
+}
