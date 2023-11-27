@@ -122,7 +122,6 @@ if (!isset($_SESSION['username'])) {
 
                 <div class="map-main tab-content" id="map-container">
                     <div id="map"></div>
-                    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
                 </div>
                 <div class="car  tab-content" id="searchcars">
                     <div class="car-infos">
@@ -226,23 +225,27 @@ if (!isset($_SESSION['username'])) {
             </div>
 
             <div class="user-settings-main tab-content" id="user-settings">
-                <h1>User Settings</h1>
+                <div class="user-settings-cont">
+                    <h1>User Settings</h1>
+                    <div class="message"></div>
+                    <?php
+                    if (isset($_SESSION['username'])) {
+                        echo '<span class="username"> Benutzername: ' . $_SESSION['username'] . '</span>';
+                    }
+                    ?>
 
-                <?php
-                if (isset($_SESSION['username'])) {
-                    echo '<span class="username"> Benutzername: ' . $_SESSION['username'] . '</span>';
-                } ?>
-
-                <form action="change_password.php" method="post">
-                    <div class="new-password">
-                        <label for="new-password">Neues Passwort:</label>
-                        <input type="password" name="new_password" id="new-password" required>
-                        <label for="confirm-password">Passwort bestätigen:</label>
-                        <input type="password" name="confirm_password" id="confirm-password" required>
-                        <button type="submit">Passwort ändern</button>
-                    </div>
-                </form>
+                    <form action="change_password.php" method="post">
+                        <div class="new-password">
+                            <label for="new-password" class="label">Neues Passwort:</label>
+                            <input type="password" name="new_password" id="new-password" required>
+                            <label for="confirm-password" class="label">Passwort bestätigen:</label>
+                            <input type="password" name="confirm_password" id="confirm-password" required>
+                            <button type="submit">Passwort ändern</button>
+                        </div>
+                    </form>
+                </div>
             </div>
+
 
 
             <div class="taskbar">
@@ -275,6 +278,31 @@ if (!isset($_SESSION['username'])) {
     <script src="js/nui_int.js"></script>
     <script src="js/windowonl.js"></script>
     <script src="js/index.js"></script>
+    <script>
+        // AJAX request to handle form submission without page reload
+        $(document).ready(function () {
+            $("form").submit(function (e) {
+                e.preventDefault();
+
+                $.ajax({
+                    type: "POST",
+                    url: "change_password.php",
+                    data: $(this).serialize(),
+                    dataType: "json",
+                    success: function (response) {
+                        // Display the message on the page
+                        if (response.message) {
+                            $(".message").text(response.message);
+                        }
+                    },
+                    error: function (error) {
+                        console.log(error);
+                    }
+                });
+            });
+        });
+    </script>
+
 </body>
 
 </html>

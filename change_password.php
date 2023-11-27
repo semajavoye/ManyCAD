@@ -1,7 +1,10 @@
 <?php
-
 session_start();
 require_once("db.php");
+
+// Initialize a variable to store messages
+$message = "";
+
 // Validate form submission
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Retrieve new password and confirm password from the form
@@ -18,14 +21,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Execute the update query
         if ($conn->query($updatePasswordQuery) === TRUE) {
             // Password updated successfully
-            echo "Passwort erfolgreich aktualisiert";
+            $message = "Passwort erfolgreich aktualisiert";
         } else {
             // Error updating password
-            echo "Fehler beim Aktualisieren des Passworts: " . $conn->error;
+            $message = "Fehler beim Aktualisieren des Passworts: " . $conn->error;
         }
     } else {
         // Passwords do not match, handle the error (e.g., display an error message)
-        $error = "Passwords do not match";
+        $message = "Passwords do not match";
     }
+
+    // Return the message as JSON
+    echo json_encode(['message' => $message]);
+    exit();
 }
 ?>
