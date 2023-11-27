@@ -1,4 +1,7 @@
 <?php
+
+session_start();
+require_once("db.php");
 // Validate form submission
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Retrieve new password and confirm password from the form
@@ -8,11 +11,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Check if passwords match
     if ($newPassword == $confirmPassword) {
-        // Hash the new password (use appropriate password hashing method)
-        $hashedPassword = password_hash($newPassword, PASSWORD_DEFAULT);
 
         // Update the password in the database
-        $updatePasswordQuery = "UPDATE users SET passwort = '$hashedPassword' WHERE username = '$username'";
+        $updatePasswordQuery = "UPDATE users SET passwort = '$newPassword' WHERE username = '$username'";
 
         // Execute the update query
         if ($conn->query($updatePasswordQuery) === TRUE) {
