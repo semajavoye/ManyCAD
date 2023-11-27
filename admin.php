@@ -37,7 +37,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 $conn->close();
 
 // Function to generate a random password
-function generateRandomPassword($length = 10) {
+function generateRandomPassword($length = 10)
+{
     $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
     $password = '';
     for ($i = 0; $i < $length; $i++) {
@@ -54,7 +55,8 @@ function generateRandomPassword($length = 10) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin</title>
-    <link rel="stylesheet" href="css/admin.css"> <!-- Falls du ein CSS für das Registrierungs-Formular verwenden möchtest -->
+    <link rel="stylesheet" href="css/admin.css">
+    <!-- Falls du ein CSS für das Registrierungs-Formular verwenden möchtest -->
 </head>
 
 <body>
@@ -67,7 +69,9 @@ function generateRandomPassword($length = 10) {
 
             <?php if (!empty($generatedPassword)): ?>
                 <!-- Display the generated password only if it's not empty -->
-                <p>Automatisch generiertes Passwort: <?php echo $generatedPassword; ?></p>
+                <p>Automatisch generiertes Passwort:
+                    <?php echo $generatedPassword; ?>
+                </p>
             <?php endif; ?>
 
             <button type="submit">BENUTZER ANLEGEN!</button>
