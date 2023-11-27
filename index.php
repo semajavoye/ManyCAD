@@ -228,11 +228,22 @@ if (!isset($_SESSION['username'])) {
             <div class="user-settings-main tab-content" id="user-settings">
                 <h1>User Settings</h1>
 
-                
-                <?php if (isset($_SESSION['username'])) {
-                    echo '<span class="username">' . $_SESSION['username'] . '</span>';
+                <?php
+                if (isset($_SESSION['username'])) {
+                    echo '<span class="username"> Benutzername: ' . $_SESSION['username'] . '</span>';
                 } ?>
+
+                <form action="change_password.php" method="post">
+                    <div class="new-password">
+                        <label for="new-password">Neues Passwort:</label>
+                        <input type="password" name="new_password" id="new-password" required>
+                        <label for="confirm-password">Passwort bestätigen:</label>
+                        <input type="password" name="confirm_password" id="confirm-password" required>
+                        <button type="submit">Passwort ändern</button>
+                    </div>
+                </form>
             </div>
+
 
             <div class="taskbar">
                 <div class="power-btn" id="powerbtn">

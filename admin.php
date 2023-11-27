@@ -9,11 +9,13 @@ if (!isset($_SESSION['username']) || $_SESSION['username'] !== 'admin') {
     exit();
 }
 
+$generatedPassword = ''; // Initialize the variable to store the generated password
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST['username'];
 
     // Generate a random password
-    $password = generateRandomPassword();
+    $generatedPassword = generateRandomPassword();
 
     // Überprüfe, ob der Benutzer bereits existiert
     $checkUserExistence = "SELECT * FROM users WHERE username = '$username'";
@@ -23,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "Benutzername bereits vergeben";
     } else {
         // Füge den Benutzer zur Datenbank hinzu
-        $sql = "INSERT INTO users (username, passwort) VALUES ('$username', '$password')";
+        $sql = "INSERT INTO users (username, passwort) VALUES ('$username', '$generatedPassword')";
         if ($conn->query($sql) === TRUE) {
             $_SESSION['username'] = $username;
         } else {
@@ -46,7 +48,7 @@ function generateRandomPassword($length = 10) {
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 
 <head>
     <meta charset="UTF-8">
@@ -63,10 +65,12 @@ function generateRandomPassword($length = 10) {
             <label for="username">Benutzername:</label>
             <input type="text" id="username" name="username" required>
 
-            <!-- Display the generated password -->
-            <p>Automatisch generiertes Passwort: <?php echo generateRandomPassword(); ?></p>
+            <?php if (!empty($generatedPassword)): ?>
+                <!-- Display the generated password only if it's not empty -->
+                <p>Automatisch generiertes Passwort: <?php echo $generatedPassword; ?></p>
+            <?php endif; ?>
 
-            <button type="submit">Registrieren</button>
+            <button type="submit">BENUTZER ANLEGEN!</button>
         </form>
     </div>
 </body>
