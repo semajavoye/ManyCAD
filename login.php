@@ -39,6 +39,7 @@ $conn->close();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/var.css">
 </head>
 
 <body>
@@ -50,10 +51,25 @@ $conn->close();
 
             <label for="password">Passwort:</label>
             <input type="password" id="password" name="password" required>
+            <div class="showpw">
+                <input type="checkbox" id="showPassword" onclick="togglePassword()">
+                <label for="showPassword">Passwort anzeigen</label>
+            </div>
 
             <button type="submit">Login</button>
         </form>
     </div>
+
+    <script>
+        function togglePassword() {
+            var passwordField = document.getElementById("password");
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+            } else {
+                passwordField.type = "password";
+            }
+        }
+    </script>
 </body>
 
 </html>

@@ -250,10 +250,7 @@ if (!isset($_SESSION['username'])) {
 
             <div class="taskbar">
                 <div class="power-btn" id="powerbtn">
-                    <form method="post" action="logout.php">
-                        <button type="submit" style="border: none; background-color: transparent;"><img
-                                src="img/power-button.png" alt="Shutdown Button"></button>
-                    </form>
+                    <button type="submit" style="border: none; background-color: transparent;" id="logout"><img src="img/power-button.png" alt="Shutdown Button"></button>
                 </div>
                 <div class="apps" id="user">
                     <ul>
@@ -301,6 +298,11 @@ if (!isset($_SESSION['username'])) {
                 });
             });
         });
+
+        document.getElementById("logout").addEventListener("click", logout);
+
+        function logout() {window.location.href = "logout.php";}
+
     </script>
 
 </body>

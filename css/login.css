@@ -2,7 +2,7 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
+    background-color: var(--background-color);
     margin: 0;
     display: flex;
     justify-content: center;
@@ -11,15 +11,16 @@ body {
 }
 
 .login-container {
-    background-color: #fff;
+    width: 40vw;
+    background-color: var(--background-color-bright);
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px var(--shadow-color);
     padding: 20px;
     text-align: center;
 }
 
 h2 {
-    color: #333;
+    color: var(--text-color);
 }
 
 form {
@@ -30,22 +31,24 @@ form {
 
 label {
     margin-top: 10px;
-    color: #555;
+    color: var(--secondary-color);
 }
 
 input {
     width: 100%;
+    background-color: var(--background-color);
     padding: 10px;
     margin-top: 5px;
     margin-bottom: 15px;
     box-sizing: border-box;
-    border: 1px solid #ddd;
+    border: 1px solid var(--border-color);
     border-radius: 4px;
+    color: var(--text-color);
 }
 
 button {
-    background-color: #3498db;
-    color: #fff;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
     padding: 10px 15px;
     border: none;
     border-radius: 4px;
@@ -54,5 +57,12 @@ button {
 }
 
 button:hover {
-    background-color: #2980b9;
+    background-color: var(--hover-color);
+}
+
+.showpw {
+    display: flex;
+    flex-direction: row;
+    text-wrap: nowrap;
+    text-align: center;
 }

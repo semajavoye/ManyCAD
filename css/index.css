@@ -678,7 +678,7 @@ select {
 .new-password label {
     display: block;
     margin-bottom: 5px;
-    color: #333;
+    color: var(--background-color);
 }
 
 .new-password input {
@@ -689,8 +689,8 @@ select {
 }
 
 .new-password button {
-    background-color: #4caf50;
-    color: #fff;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
     padding: 10px 15px;
     border: none;
     border-radius: 3px;
@@ -698,5 +698,5 @@ select {
 }
 
 .new-password button:hover {
-    background-color: #45a049;
+    background-color: var(--secondary-color);
 }
