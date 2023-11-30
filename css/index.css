@@ -163,7 +163,8 @@ body {
 }
 
 #user i {
-    margin-right: 10px; /* You can adjust the value according to your preference */
+    margin-right: 10px;
+    /* You can adjust the value according to your preference */
 }
 
 
@@ -631,4 +632,72 @@ input::-webkit-inner-spin-button {
     color: var(--text-color);
     background-color: var(--polizei-logo);
     border: 1px solid var(--polizei-logo);
+}
+
+.user-settings-cont {
+    position: relative;
+    font-family: Arial, sans-serif;
+    font-size: 1.5rem;
+    border: 2px solid var(--border-color);
+    border-radius: 25px;
+    padding: 20px;
+    margin: 20px;
+    width: 30%;
+    background-color: var(--background-color);
+    box-shadow: 0px 0px 10px 0px var(--shadow-color);
+    overflow: hidden;
+}
+
+.user-settings-cont h1 {
+    text-align: center;
+    color: var(--text-color);
+}
+
+.new-password .label {
+    font-size: 1.2rem;
+    color: var(--secondary-color);
+}
+
+.user-settings-cont input,
+textarea,
+select {
+    display: flex;
+    background-color: var(--background-color);
+    resize: none;
+    max-width: 60vw;
+    color: var(--text-color);
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+}
+
+
+.new-password {
+    margin-top: 20px;
+}
+
+.new-password label {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--background-color);
+}
+
+.new-password input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+.new-password button {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    padding: 10px 15px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.new-password button:hover {
+    background-color: var(--secondary-color);
 }
