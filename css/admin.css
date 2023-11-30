@@ -1,54 +1,111 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: var(--background-color);
     margin: 0;
-    padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
 }
 
+
 .register-container {
-    background-color: #fff;
+    width: 40vw;
+    background-color: var(--background-color-bright);
+    border-radius: 8px;
+    box-shadow: 0 0 10px var(--shadow-color);
     padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 300px;
     text-align: center;
+    color: var(--text-color);
 }
 
+
 h2 {
-    color: #333;
+    color: var(--text-color);
 }
 
 form {
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 label {
     margin-top: 10px;
-    color: #555;
+    color: var(--secondary-color);
 }
 
 input {
-    padding: 8px;
+    width: 100%;
+    background-color: var(--background-color);
+    padding: 10px;
     margin-top: 5px;
     margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
+    box-sizing: border-box;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    color: var(--text-color);
 }
 
 button {
-    background-color: #4caf50;
-    color: #fff;
-    padding: 10px;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    padding: 10px 15px;
     border: none;
-    border-radius: 3px;
+    border-radius: 4px;
     cursor: pointer;
+    font-size: 16px;
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: var(--hover-color);
+}
+
+.userstable {
+    width: 80vw;
+    margin: 20px auto;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 10px var(--shadow-color);
+    color: var(--text-color);
+}
+
+.userstable table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.userstable th, .userstable td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+}
+
+.userstable th {
+    background-color: var(--background-color-bright);
+}
+
+.userstable th:hover {
+    background-color: var(--hover-color);
+}
+
+.userstable tr:hover {
+    background-color: var(--hover-color);
+}
+
+.userstable .edit-button, .userstable .delete-button {
+    padding: 8px 12px;
+    margin: 4px;
+    cursor: pointer;
+}
+
+.userstable button.edit-button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+}
+
+.userstable button.delete-button {
+    background-color: #f44336;
+    color: white;
+    border: none;
 }
