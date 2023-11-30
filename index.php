@@ -246,8 +246,6 @@ if (!isset($_SESSION['username'])) {
                 </div>
             </div>
 
-
-
             <div class="taskbar">
                 <div class="power-btn" id="powerbtn">
                     <button type="submit" style="border: none; background-color: transparent;" id="logout"><img
@@ -269,12 +267,11 @@ if (!isset($_SESSION['username'])) {
                     <div class="time" id="time"></div>
                 </div>
                 <div class="panicbutton" id="panicbtn"><img src="img/panicbtn.png" alt="Panic"></div>
+                <div id="notification-container"></div>
             </div>
         </div>
     </div>
 
-    <script src="js/nui_int.js"></script>
-    <script src="js/windowonl.js"></script>
     <script src="js/index.js"></script>
     <script>
         // AJAX request to handle form submission without page reload

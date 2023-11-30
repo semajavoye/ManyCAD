@@ -701,3 +701,41 @@ select {
 .new-password button:hover {
     background-color: var(--secondary-color);
 }
+
+.notification {
+    position: fixed;
+    bottom: 100px;
+    right: 20px;
+    padding: 20px;
+    background-color: #444;
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    transition: opacity 0.5s ease-in-out;
+    animation: slideIn 0.5s ease-out;
+    margin-bottom: 10px;
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.notification.success {
+    background-color: #4CAF50;
+}
+
+.notification.warning {
+    background-color: #ff9800;
+}
+
+.notification.error {
+    background-color: #f44336;
+}

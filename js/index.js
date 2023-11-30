@@ -136,6 +136,43 @@ function backToHome() {
     userheader.style.display = 'none';
 }
 
+function displayNotification(message, type, timeout) {
+    var container = document.getElementById("notification-container");
+    var existingNotifications = container.getElementsByClassName("notification");
+
+    // Calculate the bottom position for the new notification
+    var bottomPosition = 100; // Startposition für die neuen Benachrichtigungen
+
+    // Verschiebe die bestehenden Benachrichtigungen nach oben
+    for (var i = 0; i < existingNotifications.length; i++) {
+        var notification = existingNotifications[i];
+        var currentBottom = parseInt(notification.style.bottom, 10);
+        notification.style.bottom = (currentBottom + 70) + "px";
+    }
+
+    // Create a new div element
+    var notification = document.createElement("div");
+
+    // Set its class to "notification" and the type
+    notification.className = "notification " + type;
+
+    // Set its innerHTML to the message
+    notification.innerHTML = message;
+
+    // Set the bottom position for the new notification
+    notification.style.bottom = bottomPosition + "px";
+
+    // Append this div to the notification container
+    container.insertBefore(notification, container.firstChild);
+
+    // After 5 seconds, remove this div from the container
+    setTimeout(function () {
+        container.removeChild(notification);
+    }, timeout);
+}
+
+
+
 
 function anzeigenEinheiten() {
     // Code zum Anzeigen aller Einheiten
