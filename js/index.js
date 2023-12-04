@@ -101,9 +101,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
             const userheader = document.querySelector('.user-header');
             if (activeContent) {
                 activeContent.classList.add('active');
-                main_system.classList.add('inmenu');
-                sidebar.style.display = 'none';
-                userheader.style.display = 'block';
             }
         });
     });
