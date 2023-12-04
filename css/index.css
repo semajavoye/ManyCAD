@@ -13,8 +13,7 @@ body {
 }
 
 .main-system {
-    display: none;
-    background-image: url('../img/logo.png');
+    display: block;
     background-size: contain solid;
     background-repeat: no-repeat;
     background-position: 50%;
@@ -53,27 +52,45 @@ body {
     overflow: hidden;
 }
 
-.desktop-icons img {
-    width: 100px;
-    height: 100px;
-    object-fit: contain;
-    /* Maintain aspect ratio */
-    margin: 20px;
-    border: 5px solid var(--border-color);
-    border-radius: 10px;
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #333;
+    color: #fff;
+    width: 20vw;
+    max-width: 250px;
+    height: 100vh;
+    overflow: hidden;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+    padding: 20px;
 }
 
-.desktop-icons ul {
+.sidebar img {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+    border: 2px solid #fff;
+    border-radius: 1px;
+}
+
+.sidebar ul {
     list-style: none;
     padding: 0;
-    display: flex;
-    flex-wrap: wrap;
 }
 
-.desktop-icons li {
-    margin-right: 10px;
-    margin-bottom: 10px;
+.sidebar li {
+    margin-bottom: 15px;
+    font-size: 12px;
+    position: relative;
 }
+
+.sidebar li img {
+    margin-right: 10px;
+}
+
+
 
 .apps ul {
     list-style-type: none;
@@ -93,7 +110,6 @@ body {
     width: 50px;
     height: 50px;
     object-fit: contain;
-    /* Maintain aspect ratio */
 }
 
 .loader-container {

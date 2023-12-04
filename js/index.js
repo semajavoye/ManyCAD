@@ -1,14 +1,3 @@
-window.onload = function () {
-
-
-    var animationDuration = 2000;
-    setTimeout(function () {
-        // After the timeout, toggle the 'desktop' class to make it visible
-        document.querySelector('.loader-container').style.display = 'none'; // Hide the loader container
-        document.querySelector('.main-system').style.display = 'block'; // Show the desktop
-    }, animationDuration);
-};
-
 document.addEventListener('DOMContentLoaded', (event) => {
     // Function to get formatted German weekday
     function getGermanWeekday(date) {
@@ -88,7 +77,7 @@ function newNote() {
 document.addEventListener('DOMContentLoaded', (event) => {
     // Get all tab elements
     const tabs = document.querySelectorAll('li[data-tab]');
-    const desktopico = document.querySelector('.desktop-icons');
+    const sidebar = document.querySelector('.sidebar');
 
     // Get all tab content elements
     const tabContents = document.querySelectorAll('.tab-content');
@@ -113,7 +102,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
             if (activeContent) {
                 activeContent.classList.add('active');
                 main_system.classList.add('inmenu');
-                desktopico.style.display = 'none';
+                sidebar.style.display = 'none';
                 userheader.style.display = 'block';
             }
         });
@@ -123,7 +112,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
 function backToHome() {
     const tabContents = document.querySelectorAll('.tab-content');
-    const desktopico = document.querySelector('.desktop-icons');
+    const sidebar = document.querySelector('.sidebar');
     const userheader = document.querySelector('.user-header');
     const main_system = document.querySelector('.main-system');
 
@@ -132,7 +121,7 @@ function backToHome() {
         main_system.classList.remove('inmenu');
     });
 
-    desktopico.style.display = 'block';
+    sidebar.style.display = 'block';
     userheader.style.display = 'none';
 }
 
@@ -169,71 +158,4 @@ function displayNotification(message, type, timeout) {
     setTimeout(function () {
         container.removeChild(notification);
     }, timeout);
-}
-
-
-
-
-function anzeigenEinheiten() {
-    // Code zum Anzeigen aller Einheiten
-}
-
-function hinzufuegenEinheit() {
-    // Code zum Hinzufügen einer Einheit
-}
-
-function entfernenEinheit() {
-    // Code zum Entfernen einer Einheit
-}
-
-function anzeigenEinsaetze() {
-    // Code zum Anzeigen aller Einsätze
-}
-
-function erstellenEinsatz() {
-    // Code zum Erstellen eines neuen Einsatzes
-}
-
-function anzeigenEinsatzDetails() {
-    // Code zum Anzeigen von Einsatzdetails
-}
-
-function aktualisierenEinsatz() {
-    // Code zum Aktualisieren eines Einsatzes
-}
-
-function zuweisenEinheit() {
-    // Code zum Zuweisen einer Einheit zu einem Einsatz
-}
-
-function protokollierung() {
-    // Code für die Protokollierung
-}
-
-function benutzerverwaltung() {
-    // Code für die Benutzerverwaltung
-}
-
-function benachrichtigungen() {
-    // Code für Benachrichtigungen
-}
-
-function kartenIntegration() {
-    // Code für die Kartenintegration
-}
-
-function chatFunktion() {
-    // Code für die Chatfunktion
-}
-
-function historischeDaten() {
-    // Code zum Anzeigen historischer Daten
-}
-
-function routenPlanung() {
-    // Code für die Routenplanung
-}
-
-function dateianhaenge() {
-    // Code für Dateianhänge
 }

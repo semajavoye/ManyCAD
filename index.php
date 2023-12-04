@@ -28,29 +28,29 @@ if (!isset($_SESSION['username'])) {
 
 <body>
     <div class="container">
-        <div class="loader-container">
-            <img src="img/logo.png" alt="Logo" class="logo">
-            <div class="horizontal-loader">
-                <div class="horizontal-loader-progress"></div>
-            </div>
-        </div>
-
         <div class="main-system">
             <div class="desktop" id="desktop">
                 <!-- Navigation -->
                 <div class="user-header">
                     <img onclick="backToHome()" src="img/desktop-icons/to-home.png" alt="">
                 </div>
-                <div class="desktop-icons">
+                <div class="sidebar">
                     <ul>
-                        <li id="tab1" data-tab="new-call"><img src="img/desktop-icons/new-call.png" alt=""></li>
-                        <li id="tab2" data-tab="map-container"><img src="img/desktop-icons/maps.png" alt=""></li>
-                        <li id="tab3" data-tab="searchcars"><img src="img/desktop-icons/car-search.png" alt=""></li>
-                        <li id="tab4" data-tab="searchpersons"><img src="img/desktop-icons/person-search.png" alt="">
+                        <li data-tab="user-settings">
+                            <i class="fa-solid fa-user"></i>
+                            <?php if (isset($_SESSION['username'])) {
+                                echo '<span class="username">' . $_SESSION['username'] . '</span>';
+                            } ?>
                         </li>
-                        <li id="tab5" data-tab="noteContainer"><img src="img/desktop-icons/notes.png" alt=""></li>
-                        <li id="tab6" data-tab="active-calls"><img src="img/desktop-icons/activedispatches.png" alt="">
-                        </li>
+                        <li id="tab1" data-tab="new-call"><img src="img/desktop-icons/new-call.png" alt="">New Call</li>
+                        <li id="tab2" data-tab="map-container"><img src="img/desktop-icons/maps.png" alt="">Maps</li>
+                        <li id="tab3" data-tab="searchcars"><img src="img/desktop-icons/car-search.png" alt="">Search
+                            Vehicle</li>
+                        <li id="tab4" data-tab="searchpersons"><img src="img/desktop-icons/person-search.png"
+                                alt="">Search person</li>
+                        <li id="tab5" data-tab="noteContainer"><img src="img/desktop-icons/notes.png" alt="">Notes</li>
+                        <li id="tab6" data-tab="active-calls"><img src="img/desktop-icons/activedispatches.png"
+                                alt="">Active Dispatches</li>
                     </ul>
                 </div>
 
@@ -251,16 +251,7 @@ if (!isset($_SESSION['username'])) {
                     <button type="submit" style="border: none; background-color: transparent;" id="logout"><img
                             src="img/power-button.png" alt="Shutdown Button"></button>
                 </div>
-                <div class="apps" id="user">
-                    <ul>
-                        <li data-tab="user-settings">
-                            <i class="fa-solid fa-user"></i>
-                            <?php if (isset($_SESSION['username'])) {
-                                echo '<span class="username">' . $_SESSION['username'] . '</span>';
-                            } ?>
-                        </li>
-                    </ul>
-                </div>
+
 
                 <div class="datetime">
                     <div class="date" id="date"></div>
