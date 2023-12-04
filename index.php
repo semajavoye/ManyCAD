@@ -41,13 +41,10 @@ if (!isset($_SESSION['username'])) {
                         <li id="logout"><button>Logout</button></li>
                         <li id="tab1" data-tab="new-call"><img src="img/desktop-icons/new-call.png" alt="">New Call</li>
                         <li id="tab2" data-tab="map-container"><img src="img/desktop-icons/maps.png" alt="">Maps</li>
-                        <li id="tab3" data-tab="searchcars"><img src="img/desktop-icons/car-search.png" alt="">Search
-                            Vehicle</li>
-                        <li id="tab4" data-tab="searchpersons"><img src="img/desktop-icons/person-search.png"
-                                alt="">Search person</li>
+                        <li id="tab3" data-tab="searchcars"><img src="img/desktop-icons/car-search.png" alt="">Search Vehicle</li>
+                        <li id="tab4" data-tab="searchpersons"><img src="img/desktop-icons/person-search.png" alt="">Search person</li>
                         <li id="tab5" data-tab="noteContainer"><img src="img/desktop-icons/notes.png" alt="">Notes</li>
-                        <li id="tab6" data-tab="active-calls"><img src="img/desktop-icons/activedispatches.png"
-                                alt="">Active Dispatches</li>
+                        <li id="tab6" data-tab="active-calls"><img src="img/desktop-icons/activedispatches.png" alt="">Active Dispatches</li>
 
                         <div class="sidebar-footer">
                             <div class="datetime">

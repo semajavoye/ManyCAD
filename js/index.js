@@ -77,7 +77,6 @@ function newNote() {
 document.addEventListener('DOMContentLoaded', (event) => {
     // Get all tab elements
     const tabs = document.querySelectorAll('li[data-tab]');
-    const sidebar = document.querySelector('.sidebar');
 
     // Get all tab content elements
     const tabContents = document.querySelectorAll('.tab-content');
@@ -87,10 +86,14 @@ document.addEventListener('DOMContentLoaded', (event) => {
     // Add click event listener to each tab
     tabs.forEach(tab => {
         tab.addEventListener('click', () => {
-            // Hide all tab content elements
+            // Remove active class from all tabs
+            tabs.forEach(t => {
+                t.classList.remove('active');
+            });
+
+            // Remove active class from all tab content elements
             tabContents.forEach(content => {
                 content.classList.remove('active');
-                main_system.classList.remove('inmenu');
             });
 
             // Get the data-tab attribute value of the clicked tab
@@ -100,11 +103,13 @@ document.addEventListener('DOMContentLoaded', (event) => {
             const activeContent = document.getElementById(tabId);
             const userheader = document.querySelector('.user-header');
             if (activeContent) {
+                tab.classList.add('active');
                 activeContent.classList.add('active');
             }
         });
     });
 });
+
 
 
 function backToHome() {
