@@ -10,4 +10,13 @@
     --shadow-color: rgba(0, 0, 0, 0.1);
     --hover-color: #45a049;
     --placeholder-color: #bbb;
+    --link-color: #3498db;
+    --error-color: #ff0000;
+    --success-color: #45a049;
+    --warning-color: #ff9800;
+    --info-color: #3498db;
+    --button-background: #3498db;
+    --button-text: #fff;
+    --header-background: #333;
+    --footer-background: #222;
 }
