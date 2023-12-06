@@ -30,6 +30,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
         return number < 10 ? '0' + number : number;
     }
 
+
+
     setInterval(updateDateTime, 1000);
 
 });
@@ -68,7 +70,10 @@ function openNote() {
 }
 
 function newNote() {
+    const inputField = document.getElementById('editor');
+    const titleField = document.getElementById('titleNote');
     inputField.value = '';
+    titleField.value = '';
 }
 
 

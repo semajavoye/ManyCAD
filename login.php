@@ -10,7 +10,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $result = $conn->query($sql);
 
     if ($result->num_rows == 1) {
-        // Benutzer gefunden, setze Session
+        $row = $result->fetch_assoc();
+        $user_id = $row['id'];
+        $_SESSION['user_id'] = $user_id;
         $_SESSION['username'] = $username;
 
         // Überprüfe, ob der Benutzer "admin" ist

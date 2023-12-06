@@ -36,6 +36,9 @@ if(!isset($_SESSION['username'])) {
                             <i class="fa-solid fa-user"></i>
                             <?php if(isset($_SESSION['username'])) {
                                 echo '<span class="username">'.$_SESSION['username'].'</span>';
+                            }
+                            if(isset($_SESSION['user_id'])) {
+                                echo '<span class="user_id">'.$_SESSION['user_id'].'</span>';
                             } ?>
                         </li>
                         <li id="logout"><button>Logout</button></li>
@@ -86,21 +89,26 @@ if(!isset($_SESSION['username'])) {
                         <div class="new-call-container">
                             <div class="new-call-form">
                                 <div class="title">Notfallaufnahme</div>
-                                <form id="new-call-form">
+                                <form id="new-call-form" action="create_call.php" method="post">
                                     <div class="form-group">
                                         <label for="call-number" class="label">Anrufsnummer:</label>
-                                        <input type="number" id="call-number" name="call-number" class="input" max=6
-                                            placeholder="Telefonnummer" required>
+                                        <input type="number" id="call-number" name="call-number" class="input"
+                                            maxlength="6" placeholder="Telefonnummer" required>
                                     </div>
                                     <div class="form-group">
                                         <label for="who" class="label">Wer?</label>
-                                        <input type="text" id="firstName" placeholder="Vorname">
-                                        <input type="text" id="lastName" placeholder="Nachname">
-                                        <input type="date" id="dob" placeholder="Geburtsdatum">
+                                        <div class="name-inputs">
+                                            <input type="text" id="firstName" placeholder="Vorname" name="first-name">
+                                            <input type="text" id="lastName" placeholder="Nachname" name="last-name">
+                                        </div>
+
+                                        <input type="date" id="dob" placeholder="Geburtsdatum" name="dob">
                                     </div>
                                     <div class="form-group">
                                         <label for="primary-unit" class="label">Streifenauswahl:</label>
-                                        <select id="primary-unit" name="primary-unit" class="input" required></select>
+                                        <select id="primary-unit" name="primary-unit" class="input" required>
+                                            <option value="placeholder1">TEST</option>
+                                        </select>
                                     </div>
                                     <div class="form-group">
                                         <label for="location" class="label">Postleitzahl:</label>
@@ -112,15 +120,13 @@ if(!isset($_SESSION['username'])) {
                                         <textarea id="description" name="description" class="input" rows="4" required
                                             placeholder="Was ist passiert?"></textarea>
                                     </div>
-                                    <button type="button" class="submit-button" onclick="createCall()"><span>Create
-                                            Call</span></button>
+                                    <button type="submit" class="submit-button"><span>Create Call</span></button>
                                 </form>
                             </div>
                         </div>
                     </div>
 
                     <div class="map-main tab-content" id="map-container">
-                        <div id="map"></div>
                     </div>
 
 
@@ -172,31 +178,31 @@ if(!isset($_SESSION['username'])) {
                                         <div class="person-name">
                                             Name
                                             <div class="person-nameholder">
-                                                <span class="person-namesp">Semaja Voye</span>
+                                                <span class="person-namesp"></span>
                                             </div>
                                         </div>
                                         <div class="person-dob">
                                             Geburtsdatum
                                             <div class="person-dobholder">
-                                                <span class="person-dobsp">31.10.2008</span>
+                                                <span class="person-dobsp"></span>
                                             </div>
                                         </div>
                                         <div class="person-height">
                                             Größe
                                             <div class="person-heightholder">
-                                                <span class="person-heightsp">180</span>
+                                                <span class="person-heightsp"></span>
                                             </div>
                                         </div>
                                         <div class="person-phonenumber">
                                             Telefonnummer
                                             <div class="person-phonenumberholder">
-                                                <span class="person-phonenumbersp">123123</span>
+                                                <span class="person-phonenumbersp"></span>
                                             </div>
                                         </div>
                                         <div class="person-job">
                                             Arbeit
                                             <div class="person-jobholder">
-                                                <span class="person-jobsp">IT</span>
+                                                <span class="person-jobsp"></span>
                                             </div>
                                         </div>
                                     </div>
@@ -215,37 +221,19 @@ if(!isset($_SESSION['username'])) {
                             </select>
                             <div class="alertField"></div>
                             <input type="text" id="titleNote" placeholder="Titel">
-                            <textarea name="" id="" cols="30" rows="10"></textarea>
+                            <textarea class="editor" id="editor" placeholder="Start typing..." rows="10"></textarea>
                             <div class="buttonHolder">
                                 <button>Speichern</button>
                                 <button>Öffnen</button>
-                                <button>Neu</button>
+                                <button onclick="newNote()">Neu</button>
                             </div>
                         </div>
                     </div>
 
                     <div class="active-calls-main tab-content" id="active-calls">
                         <div class="title">Aktive Dispatches</div>
-                        <div class="active-calls-container">
-                            <div class="active-calls-form">
-                                <form id="active-call-form">
-                                    <div class="form-group">
-                                        <label for="call-number" class="label">Anrufsnummer:</label>
-                                        <span class="call-number-sp"></span>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="who" class="label">Wer?</label>
-                                        <div class="namecontainer">
-                                            <span class="firstName-sp"></span>
-                                            <span class="lastName-sp"></span>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="location" class="label">Postleitzahl:</label>
-                                        <span class="postCode-sp"></span>
-                                    </div>
-                                </form>
-                            </div>
+                        <div class="active-calls-container-holder">
+                            <?php include 'active_calls.php'; ?>
                         </div>
                     </div>
                 </div>
@@ -260,23 +248,45 @@ if(!isset($_SESSION['username'])) {
                 $("form").submit(function (e) {
                     e.preventDefault();
 
-                    $.ajax({
-                        type: "POST",
-                        url: "change_password.php",
-                        data: $(this).serialize(),
-                        dataType: "json",
-                        success: function (response) {
-                            // Display the message on the page
-                            if (response.message) {
-                                $(".message").text(response.message);
+                    // Check the form action
+                    if ($(this).attr("action") === "change_password.php") {
+                        // Only execute this code for the change_password form
+
+                        $.ajax({
+                            type: "POST",
+                            url: "change_password.php",
+                            data: $(this).serialize(),
+                            dataType: "json",
+                            success: function (response) {
+                                // Display the message on the page
+                                if (response.message) {
+                                    $(".message").text(response.message);
+                                }
+                            },
+                            error: function (error) {
+                                console.log(error);
                             }
-                        },
-                        error: function (error) {
-                            console.log(error);
-                        }
-                    });
+                        });
+                    } else if ($(this).attr("action") === "create_call.php") {
+                        // Handle new call form
+                        $.ajax({
+                            type: "POST",
+                            url: "create_call.php",
+                            data: $(this).serialize(),
+                            dataType: "json",
+                            success: function (response) {
+                                // Handle success
+                                console.log(response);
+                            },
+                            error: function (error) {
+                                // Handle error
+                                console.log(error);
+                            }
+                        });
+                    }
                 });
             });
+
 
             document.getElementById("logout").addEventListener("click", logout);
 
