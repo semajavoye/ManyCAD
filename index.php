@@ -34,12 +34,7 @@ if(!isset($_SESSION['username'])) {
                     <ul>
                         <li id="tab0" data-tab="user-settings">
                             <i class="fa-solid fa-user"></i>
-                            <?php if(isset($_SESSION['username'])) {
-                                echo '<span class="username">'.$_SESSION['username'].'</span>';
-                            }
-                            if(isset($_SESSION['user_id'])) {
-                                echo '<span class="user_id">'.$_SESSION['user_id'].'</span>';
-                            } ?>
+                            <?php if(isset($_SESSION['username'])){echo '<span class="username">'.$_SESSION['username'].'</span>';}?>
                         </li>
                         <li id="logout"><button>Logout</button></li>
                         <li id="tab1" data-tab="new-call"><img src="img/desktop-icons/new-call.png" alt="">New Call</li>
