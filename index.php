@@ -248,7 +248,6 @@ if(!isset($_SESSION['username'])) {
                 $("form").submit(function (e) {
                     e.preventDefault();
 
-                    // Check the form action
                     if ($(this).attr("action") === "change_password.php") {
                         // Only execute this code for the change_password form
 
