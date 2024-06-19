@@ -24,29 +24,29 @@ The application uses a MySQL database named `manycad`, with tables for users, ca
 
 ### Backend
 
-The backend is developed in PHP, handling server-side logic including database interactions, session management, and request handling. The [`db.php`](command:_github.copilot.openRelativePath?%5B%7B%22scheme%22%3A%22file%22%2C%22authority%22%3A%22%22%2C%22path%22%3A%22%2FC%3A%2Fxampp%2Fhtdocs%2FManyCAD%2Fdb.php%22%2C%22query%22%3A%22%22%2C%22fragment%22%3A%22%22%7D%5D "c:\xampp\htdocs\ManyCAD\db.php") file establishes a connection to the MySQL database, which is a critical component for the application's functionality.
+The backend is developed in PHP, handling server-side logic including database interactions, session management, and request handling. The `db.php` file establishes a connection to the MySQL database, which is a critical component for the application's functionality.
 
 ### Frontend
 
-The frontend consists of HTML pages styled with CSS, providing a user interface for interaction with the application. The [`apps.html`](command:_github.copilot.openRelativePath?%5B%7B%22scheme%22%3A%22file%22%2C%22authority%22%3A%22%22%2C%22path%22%3A%22%2FC%3A%2Fxampp%2Fhtdocs%2FManyCAD%2Fapps.html%22%2C%22query%22%3A%22%22%2C%22fragment%22%3A%22%22%7D%5D "c:\xampp\htdocs\ManyCAD\apps.html") file likely serves as a dashboard or main application page, with additional pages like [`login.php`](command:_github.copilot.openRelativePath?%5B%7B%22scheme%22%3A%22file%22%2C%22authority%22%3A%22%22%2C%22path%22%3A%22%2FC%3A%2Fxampp%2Fhtdocs%2FManyCAD%2Flogin.php%22%2C%22query%22%3A%22%22%2C%22fragment%22%3A%22%22%7D%5D "c:\xampp\htdocs\ManyCAD\login.php") and [`logout.php`](command:_github.copilot.openRelativePath?%5B%7B%22scheme%22%3A%22file%22%2C%22authority%22%3A%22%22%2C%22path%22%3A%22%2FC%3A%2Fxampp%2Fhtdocs%2FManyCAD%2Flogout.php%22%2C%22query%22%3A%22%22%2C%22fragment%22%3A%22%22%7D%5D "c:\xampp\htdocs\ManyCAD\logout.php") for user authentication. CSS files like [`index.css`](command:_github.copilot.openRelativePath?%5B%7B%22scheme%22%3A%22file%22%2C%22authority%22%3A%22%22%2C%22path%22%3A%22%2Fc%3A%2Fxampp%2Fhtdocs%2FManyCAD%2Fcss%2Fapps%2Findex.css%22%2C%22query%22%3A%22%22%2C%22fragment%22%3A%22%22%7D%5D "c:\xampp\htdocs\ManyCAD\css\apps\index.css") and `admin.css` define the visual aspects of the application, ensuring a cohesive look and feel.
+The frontend consists of HTML pages styled with CSS, providing a user interface for interaction with the application. The `apps.html` file likely serves as a dashboard or main application page, with additional pages like `login.php` and `logout.php` for user authentication. CSS files like `index.css` and `admin.css` define the visual aspects of the application, ensuring a cohesive look and feel.
 
 ### Directory Structure
 
-- **PHP Files**: Core application logic and pages ([`login.php`](command:_github.copilot.openRelativePath?%5B%7B%22scheme%22%3A%22file%22%2C%22authority%22%3A%22%22%2C%22path%22%3A%22%2FC%3A%2Fxampp%2Fhtdocs%2FManyCAD%2Flogin.php%22%2C%22query%22%3A%22%22%2C%22fragment%22%3A%22%22%7D%5D "c:\xampp\htdocs\ManyCAD\login.php"), [`logout.php`](command:_github.copilot.openRelativePath?%5B%7B%22scheme%22%3A%22file%22%2C%22authority%22%3A%22%22%2C%22path%22%3A%22%2FC%3A%2Fxampp%2Fhtdocs%2FManyCAD%2Flogout.php%22%2C%22query%22%3A%22%22%2C%22fragment%22%3A%22%22%7D%5D "c:\xampp\htdocs\ManyCAD\logout.php"), [`admin.php`](command:_github.copilot.openRelativePath?%5B%7B%22scheme%22%3A%22file%22%2C%22authority%22%3A%22%22%2C%22path%22%3A%22%2FC%3A%2Fxampp%2Fhtdocs%2FManyCAD%2Fadmin.php%22%2C%22query%22%3A%22%22%2C%22fragment%22%3A%22%22%7D%5D "c:\xampp\htdocs\ManyCAD\admin.php"), etc.).
-- **HTML Files**: Frontend pages ([`apps.html`](command:_github.copilot.openRelativePath?%5B%7B%22scheme%22%3A%22file%22%2C%22authority%22%3A%22%22%2C%22path%22%3A%22%2FC%3A%2Fxampp%2Fhtdocs%2FManyCAD%2Fapps.html%22%2C%22query%22%3A%22%22%2C%22fragment%22%3A%22%22%7D%5D "c:\xampp\htdocs\ManyCAD\apps.html"), [`backup.html`](command:_github.copilot.openRelativePath?%5B%7B%22scheme%22%3A%22file%22%2C%22authority%22%3A%22%22%2C%22path%22%3A%22%2FC%3A%2Fxampp%2Fhtdocs%2FManyCAD%2Fbackup.html%22%2C%22query%22%3A%22%22%2C%22fragment%22%3A%22%22%7D%5D "c:\xampp\htdocs\ManyCAD\backup.html")).
+- **PHP Files**: Core application logic and pages (login.php, logout.php, admin.php, etc.).
+- **HTML Files**: Frontend pages (apps.html, backup.html).
 - **CSS Directory**: Styling for the application, organized into general and app-specific styles.
 - **JS Directory**: Contains JavaScript files, potentially for dynamic interactions on the frontend.
-- **Database File**: [`manycad.sql`](command:_github.copilot.openRelativePath?%5B%7B%22scheme%22%3A%22file%22%2C%22authority%22%3A%22%22%2C%22path%22%3A%22%2FC%3A%2Fxampp%2Fhtdocs%2FManyCAD%2Fmanycad.sql%22%2C%22query%22%3A%22%22%2C%22fragment%22%3A%22%22%7D%5D "c:\xampp\htdocs\ManyCAD\manycad.sql") for setting up the database schema and initial data.
+- **Database File**: `manycad.sql` for setting up the database schema and initial data.
 
 ## Setup and Installation
 
-1. **Database Setup**: Import the [`manycad.sql`](command:_github.copilot.openRelativePath?%5B%7B%22scheme%22%3A%22file%22%2C%22authority%22%3A%22%22%2C%22path%22%3A%22%2FC%3A%2Fxampp%2Fhtdocs%2FManyCAD%2Fmanycad.sql%22%2C%22query%22%3A%22%22%2C%22fragment%22%3A%22%22%7D%5D "c:\xampp\htdocs\ManyCAD\manycad.sql") file into a MySQL database to create the necessary tables and initial data.
+1. **Database Setup**: Import the `manycad.sql` file into a MySQL database to create the necessary tables and initial data.
 2. **Server Configuration**: Place the project files in a server environment like XAMPP/WAMP, ensuring PHP and MySQL are available.
-3. **Configuration**: Update the [`db.php`](command:_github.copilot.openRelativePath?%5B%7B%22scheme%22%3A%22file%22%2C%22authority%22%3A%22%22%2C%22path%22%3A%22%2FC%3A%2Fxampp%2Fhtdocs%2FManyCAD%2Fdb.php%22%2C%22query%22%3A%22%22%2C%22fragment%22%3A%22%22%7D%5D "c:\xampp\htdocs\ManyCAD\db.php") file with the correct database connection details if different from the defaults.
+3. **Configuration**: Update the `db.php` file with the correct database connection details if different from the defaults.
 
 ## Usage
 
-After setting up the project, navigate to the [`login.php`](command:_github.copilot.openRelativePath?%5B%7B%22scheme%22%3A%22file%22%2C%22authority%22%3A%22%22%2C%22path%22%3A%22%2FC%3A%2Fxampp%2Fhtdocs%2FManyCAD%2Flogin.php%22%2C%22query%22%3A%22%22%2C%22fragment%22%3A%22%22%7D%5D "c:\xampp\htdocs\ManyCAD\login.php") page in a web browser to access the application. Use the provided credentials in the `users` table for initial login.
+After setting up the project, navigate to the `login.php` page in a web browser to access the application. Use the provided credentials in the `users` table for initial login.
 
 ## Conclusion
 
